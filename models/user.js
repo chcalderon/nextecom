@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
         required: [true, "Name is required"],
         trim: true,
         minLength: 1,
-        maxLength: 20,
+        maxLength: 200,
     },
     email: {
         type: String,
@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
         trim: true,
         minLength: 5,
-        maxLength: 50,
+        maxLength: 200,
     },
     password: String,
     role: {
