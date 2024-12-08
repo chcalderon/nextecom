@@ -13,6 +13,7 @@ export async function POST(req) {
         await new User({
             name,
             email,
+            type:"platform",
             password: await bcrypt.hash(password, 10),
         }).save();
         // console.log("user created => ", user);

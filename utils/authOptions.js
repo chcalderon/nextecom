@@ -22,6 +22,9 @@ export const authOptions = {
                 if (!user){
                     throw new Error('Invalid username or password');
                 }
+                if (user && user.type !== "platform" && user.password === ""){
+                    throw new Error('You have register as a social or google account, please login through this method or set a new password');
+                }
                 const isPasswordMatched = await bcrypt.compare(password, user.password);
                 if (!isPasswordMatched){
                     throw new Error('Invalid username or password');
@@ -34,20 +37,31 @@ export const authOptions = {
         async signIn({user,account}){
             if (account.provider === "google"){
                 const {email,name,image} = user;
-                dbConnect();
-                const dbUser = User.findOne({email});
+                await dbConnect();
+                const dbUser = await User.findOne({email});
                 if (!dbUser){
                     await User.create({
                         email,
                         name,
                         image,
-                        password: "google-pass"
-                    }).save();
+                        type: "google"
+                    });
                 }
 
             }
             return true;
-        }
+        },
+        jwt: async ({token, user}) => {
+            const userByEmail = await User.findOne({email: token.email});
+            userByEmail.password = undefined;
+            userByEmail.resetCode = undefined;
+            token.user = userByEmail;
+            return token;
+        },
+        session: async ({ session, token }) => {
+            session.user = token.user;
+            return session
+        },
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
