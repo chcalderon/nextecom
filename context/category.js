@@ -40,7 +40,7 @@ export const CategoryProvider = ({ children }) => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch(`${process.env.API}/categories`, {
+            const response = await fetch(`${process.env.API}/admin/category`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
