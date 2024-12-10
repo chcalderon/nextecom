@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 import toast from 'react-hot-toast';
 
 export const CategoryContext = createContext();
@@ -30,7 +30,7 @@ export const CategoryProvider = ({ children }) => {
                 setCategories([newlyCreatedCategory, ...categories]);
             } else {
                 const errorData = await response.json();
-                toast.error(errorData.err);
+                toast.error(errorData);
             }
         } catch (err) {
             console.log(error);
