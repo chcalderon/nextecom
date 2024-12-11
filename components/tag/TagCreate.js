@@ -22,6 +22,7 @@ export default function AdminTagCreate() {
     fetchCategories();
   }, []);
 
+
   return (
     <>
       <p className="lead">Create Sub Category</p>
@@ -45,7 +46,13 @@ export default function AdminTagCreate() {
         <select
           name="category"
           className="form-control"
-          onChange={(e) => setParentCategory(e.target.value)}
+          onChange={(e) =>
+            updatingTag
+            ? setUpdatingTag({
+                ...updatingTag,
+                name: e.target.value,
+              })
+            : setParentCategory(e.target.value)}
         >
           <option value="">Select one</option>
           {categories?.length > 0 &&

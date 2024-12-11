@@ -19,7 +19,7 @@ export const TagProvider = ({ children }) => {
         },
         body: JSON.stringify({
           name,
-          parent: parentCategory,
+          parentCategory,
         }),
       });
 
@@ -27,7 +27,7 @@ export const TagProvider = ({ children }) => {
         toast.success("Tag created successfully");
         const newlyCreatedTag = await response.json();
         setName("");
-        setParentCategory("");
+        // setParentCategory("");
         setTags([newlyCreatedTag, ...tags]);
       } else {
         const errorData = await response.json();
