@@ -86,8 +86,8 @@ export const TagProvider = ({ children }) => {
       );
 
       // Clear the categoryUpdate state
-      setUpdatingTag(null);
-      setParentCategory("");
+      // setUpdatingTag(null);
+      // setParentCategory("");
 
       toast.success("Tag updated successfully");
     } catch (err) {

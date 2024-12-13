@@ -21,8 +21,6 @@ export default function AdminTagCreate() {
   useEffect(() => {
     fetchCategories();
   }, []);
-
-
   return (
     <>
       <p className="lead">Create Sub Category</p>
@@ -46,23 +44,21 @@ export default function AdminTagCreate() {
         <select
           name="category"
           className="form-control"
+          value={updatingTag?.parentCategory || parentCategory}
           onChange={(e) =>
             updatingTag
             ? setUpdatingTag({
-                ...updatingTag,
-                name: e.target.value,
+              ...updatingTag,
+              parentCategory: e.target.value,
               })
             : setParentCategory(e.target.value)}
         >
-          <option value="">Select one</option>
+          <option>Select one</option>
           {categories?.length > 0 &&
             categories?.map((c) => (
               <option
                 key={c?._id}
                 value={c?._id}
-                selected={
-                  c?._id === updatingTag?.parent || c?._id === parentCategory
-                }
               >
                 {c?.name}
               </option>
