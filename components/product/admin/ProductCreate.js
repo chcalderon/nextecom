@@ -269,7 +269,7 @@ export default function AdminCreateProduct() {
                 <div key={img.public_id}>
                   <img
                     src={img.secure_url}
-                    className="img rounded-circle mx-1 shadow"
+                    className="img-thumbnail mx-1 shadow"
                     style={{
                       width: "100px",
                       height: "100px",
