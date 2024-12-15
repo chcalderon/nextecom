@@ -39,7 +39,7 @@ export default function AdminCreateProduct() {
       <input
         type="text"
         placeholder="Title"
-        value={updatingProduct ? updatingProduct?.title : product?.title}
+        value={updatingProduct ? updatingProduct?.title || '' : product?.title || ''}
         onChange={(e) =>
           updatingProduct
             ? setUpdatingProduct({ ...updatingProduct, title: e.target.value })
@@ -71,7 +71,7 @@ export default function AdminCreateProduct() {
           min="1"
           name="price"
           className="form-control p-2 my-2"
-          value={updatingProduct ? updatingProduct.price : product?.price}
+          value={updatingProduct ? updatingProduct.price || "" : product?.price || ""}
           onChange={(e) => {
             updatingProduct
               ? setUpdatingProduct({
@@ -108,7 +108,7 @@ export default function AdminCreateProduct() {
           placeholder="Color"
           name="price"
           className="form-control p-2 my-2"
-          value={updatingProduct ? updatingProduct.color : product?.color}
+          value={updatingProduct ? updatingProduct.color || '' : product?.color || ''}
           onChange={(e) => {
             updatingProduct
               ? setUpdatingProduct({
@@ -126,7 +126,7 @@ export default function AdminCreateProduct() {
           placeholder="Brand"
           name="brand"
           className="form-control p-2 my-2"
-          value={updatingProduct ? updatingProduct.brand : product?.brand}
+          value={updatingProduct ? updatingProduct.brand || '' : product?.brand || ''}
           onChange={(e) => {
             updatingProduct
               ? setUpdatingProduct({
@@ -144,7 +144,7 @@ export default function AdminCreateProduct() {
             placeholder="Stock"
             name="Stock"
             className="form-control p-2 my-2"
-            value={updatingProduct ? updatingProduct.stock : product?.stock}
+            value={updatingProduct ? updatingProduct.stock || "" : product?.stock || ""}
             onChange={(e) => {
               updatingProduct
                 ? setUpdatingProduct({
@@ -211,14 +211,14 @@ export default function AdminCreateProduct() {
                   type="checkbox"
                   id={tag._id}
                   name="tags"
-                  value={tag._id}
+                  value={tag._id || ''}
                   checked={(updatingProduct
                     ? updatingProduct?.tags
-                    : product?.tags
+                    : product?.tags ? product?.tags : []
                   )?.some((selectedTag) => selectedTag._id === tag._id)} // Check if the tag object is in the selected tags array
                   onChange={(e) => {
-                    const tagId = e.target.value;
-                    const tagName = tag?.name;
+                    const tagId = e.target.value || '';
+                    const tagName = tag?.name || '';
 
                     let selectedTags = updatingProduct
                       ? [...(updatingProduct?.tags ?? [])]

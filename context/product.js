@@ -195,7 +195,7 @@ export const ProductProvider = ({ children }) => {
       if (response.ok) {
         const newlyCreatedProduct = await response.json();
         toast.success(`Product "${newlyCreatedProduct?.title}" created!`);
-        router.push("/dashboard/admin/products");
+        router.push("/dashboard/admin/product");
       } else {
         const errorData = await response.json();
         toast.error(errorData.err);
