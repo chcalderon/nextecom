@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useProduct } from "@/context/product";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import Pagination from "@/components/Pagination";
+// import Pagination from "@/components/Pagination";
 import Image from "next/image";
 
 export default function AdminProducts() {
@@ -28,7 +28,7 @@ export default function AdminProducts() {
     <div className="container mb-5">
       <div className="row">
         {products.map((product) => (
-          <div
+          <div key={product._id}
             className="col-lg-6 mb-4 pointer"
             onClick={() => {
               setUpdatingProduct(product);
@@ -78,11 +78,11 @@ export default function AdminProducts() {
 
       {/* <pre>{JSON.stringify(currentPage, null, 4)}</pre> */}
 
-      <Pagination
+      {/* <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         pathname={pathname}
-      />
+      /> */}
 
       {/* <div className="d-flex justify-content-center">
         <nav aria-label="Page navigation">

@@ -208,7 +208,8 @@ export const ProductProvider = ({ children }) => {
 
   const fetchProducts = async (page) => {
     try {
-      const response = await fetch(`${process.env.API}/product?page=${page}`, {
+      // const response = await fetch(`${process.env.API}/product?page=${page}`, {
+      const response = await fetch(`${process.env.API}/product`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -220,7 +221,7 @@ export const ProductProvider = ({ children }) => {
       }
 
       const data = await response.json();
-      console.log("products in context => ", data?.length);
+      console.log("products in context => ", data?.products.length );
 
       setProducts(data.products);
       setCurrentPage(data.currentPage);
