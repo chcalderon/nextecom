@@ -41,7 +41,7 @@ export default function AdminProducts() {
                   <Image
                     src={
                       product?.images?.[0]?.secure_url ||
-                      "/images/new-wave.jpeg"
+                      "/images/new-wave.jpg"
                     }
                     className="card-img-top"
                     width={500}
@@ -57,7 +57,7 @@ export default function AdminProducts() {
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                  <h5 className="card-title">{product.title}</h5>
+                  <h5 className="card-title pointer">{product.title}</h5>
                   <h4>${product?.price.toFixed(2)}</h4>
                   <div className="card-text text-secondary">
                     <div

@@ -195,7 +195,8 @@ export const ProductProvider = ({ children }) => {
       if (response.ok) {
         const newlyCreatedProduct = await response.json();
         toast.success(`Product "${newlyCreatedProduct?.title}" created!`);
-        router.push("/dashboard/admin/product");
+        // router.push("/dashboard/admin/product");
+        window.location.reload();
       } else {
         const errorData = await response.json();
         toast.error(errorData.err);
@@ -251,7 +252,8 @@ export const ProductProvider = ({ children }) => {
       const updatedProduct = await response.json();
       toast.success(`Product "${updatedProduct?.title}" updated!`);
       // router.push("/dashboard/admin/products");
-      router.back();
+      // router.back();
+      window.location.reload();
     } catch (err) {
       console.log("err => ", err);
       toast.error("An error occurred while updating the product");
@@ -282,7 +284,8 @@ export const ProductProvider = ({ children }) => {
       const deletedProduct = await response.json();
       toast.error(`Product "${deletedProduct?.title}" deleted!`);
       // router.push("/dashboard/admin/products");
-      router.back();
+      // router.back();
+      window.location.reload();
     } catch (err) {
       console.log("err => ", err);
       toast.error("An error occurred while deleting the product");
