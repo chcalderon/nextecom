@@ -253,7 +253,7 @@ export const ProductProvider = ({ children }) => {
       toast.success(`Product "${updatedProduct?.title}" updated!`);
       // router.push("/dashboard/admin/products");
       // router.back();
-      window.location.reload();
+      window.location.href= "/dashboard/admin/products";
     } catch (err) {
       console.log("err => ", err);
       toast.error("An error occurred while updating the product");

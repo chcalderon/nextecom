@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useProduct } from "@/context/product";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
-// import Pagination from "@/components/Pagination";
+import Pagination from "@/components/Pagination";
 import Image from "next/image";
 
 export default function AdminProducts() {
@@ -78,11 +78,12 @@ export default function AdminProducts() {
 
       {/* <pre>{JSON.stringify(currentPage, null, 4)}</pre> */}
 
-      {/* <Pagination
+      <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         pathname={pathname}
-      /> */}
+        searchParams={searchParams}
+      />
 
       {/* <div className="d-flex justify-content-center">
         <nav aria-label="Page navigation">
