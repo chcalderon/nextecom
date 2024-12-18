@@ -77,14 +77,14 @@ export default function ProductCard({ product }) {
         {/* <pre>{JSON.stringify(product?.ratings, null, 4)}</pre> */}
         <div className="d-flex justify-content-between align-items-center">
           <small className="text-muted">Brand: {product?.brand}</small>
-          {/* <div>
-            <small>
+          <div>
+            {/* <small>
               <Stars rating={calculateAverageRating(product?.ratings)} />
-            </small>
+            </small> */}
             <small className="text-muted ml-1">
               {`(${product?.ratings?.length})`}
             </small>
-          </div> */}
+          </div>
         </div>
       </div>
 

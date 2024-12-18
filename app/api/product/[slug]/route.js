@@ -7,10 +7,11 @@ import Tag from "@/models/tag";
 
 export async function GET(req, context) {
   await dbConnect();
+  const {slug} = await context.params;
 
   try {
     const product = await Product.findOne({
-      slug: context.params.slug,
+      slug,
     })
       .populate("category", "name")
       .populate("tags", "name")
