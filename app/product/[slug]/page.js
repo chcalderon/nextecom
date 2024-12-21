@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import ProductImage from "@/components/product/ProductImage";
-// import ProductLike from "@/components/product/ProductLike";
+import ProductLike from "@/components/product/ProductLike";
 // import ProductRating from "@/components/product/ProductRating";
 // import UserReviews from "@/components/product/UserReviews";
 // import AddToCart from "@/components/product/AddToCart";
@@ -80,7 +80,7 @@ export default async function ProductViewPage({ params }) {
             </div>
 
             <div className="card-footer d-flex justify-content-between">
-              {/* <ProductLike product={product} /> */}
+              <ProductLike product={product} />
               <small className="text-muted">
                 Added {dayjs(product?.createdAt).fromNow()}
               </small>
