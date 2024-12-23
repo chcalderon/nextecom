@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import ProductImage from "@/components/product/ProductImage";
 import ProductLike from "@/components/product/ProductLike";
-// import ProductRating from "@/components/product/ProductRating";
+import ProductRating from "@/components/product/ProductRating";
 // import UserReviews from "@/components/product/UserReviews";
 // import AddToCart from "@/components/product/AddToCart";
 // import CouponCode from "@/components/product/CouponCode";
@@ -87,7 +87,7 @@ export default async function ProductViewPage({ params }) {
             </div>
 
             <div className="card-footer text-center">
-              {/* <ProductRating product={product} /> */}
+              <ProductRating product={product} />
             </div>
           </div>
 
