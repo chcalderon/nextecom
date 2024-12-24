@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Image from "next/image";
 import ProductRating from "@/components/product/ProductRating";
-// import ProductLike from "@/components/product/ProductLike";
+import ProductLike from "@/components/product/ProductLike";
 // import Stars from "@/components/product/Stars";
 // import { calculateAverageRating } from "@/utils/helpers";
 // import AddToCart from "@/components/product/AddToCart";
