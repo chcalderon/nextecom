@@ -36,7 +36,15 @@ export default function ProductFilter({
 
   const handleRemoveFilter = (filterName) => {
     const updatedSearchParams = { ...searchParams };
-    delete updatedSearchParams[filterName];
+    // delete updatedSearchParams[filterName];
+    if (typeof filterName === 'string') {
+      delete updatedSearchParams[filterName];
+    }
+    if (Array.isArray(filterName)) {
+      filterName?.forEach((name) => {
+        delete updatedSearchParams[name];
+      });
+    }
     // Reset page to 1 when applying new filtering options
     updatedSearchParams.page = 1;
 
@@ -82,7 +90,7 @@ export default function ProductFilter({
               {isActive && (
                 <FiX
                   className="pointer lead text-danger mb-1"
-                  onClick={() => handleRemoveFilter("minPrice", "maxPrice")}
+                  onClick={() => handleRemoveFilter(["minPrice", "maxPrice"])}
                 />
               )}
             </>
